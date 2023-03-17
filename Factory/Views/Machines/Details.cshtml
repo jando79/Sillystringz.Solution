@@ -1,0 +1,58 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models
+@model Factory.Models.Machine
+
+<h2>Machine Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.MachineName): @Html.DisplayFor(model => model.MachineName)</h3>  
+
+@if(Model.JoinLocation.Count == 0)
+{
+  <p>This Machine does not have an assigned Factory Location yet!</p>
+}
+else
+{
+  <h4>This Machine is assigned to the following Factory Location's Inventory:</h4>
+  <ul>
+    @foreach(MachineLocation join in Model.JoinLocation)
+    {
+      <li>Location: @join.Location.LocationName</li>
+      @using (Html.BeginForm("DeleteJoin", "Machines"))
+      {
+        @Html.Hidden("joinId", @join.MachineLocationId)
+        <input type="submit" value="Delete"/>
+      }
+    }
+  </ul>
+}
+
+@if(Model.JoinEngineer.Count == 0)
+{
+  <p>This Machine has no assigned Engineers!</p>
+}
+else
+{
+  <h4>Engineers assigned to this Machine:</h4>
+  <ul>
+  
+  @foreach(EngineerMachine join in Model.JoinEngineer)
+  {
+    <li>@join.Engineer.EngineerName</li>
+
+    @using (Html.BeginForm("DeleteJoin", "Machines"))
+    {
+      @Html.Hidden("joinId", @join.EngineerMachineId)
+      <input type="submit" value="Delete"/>
+    }
+  }
+  </ul>
+}
+
+
+<div id="index-nav">
+<p>@Html.ActionLink("Edit Machine", "Edit", new { id = Model.MachineId }) | @Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("Add an Engineer", "AddEngineer", new { id = Model.MachineId }) | @Html.ActionLink("Add a Location", "AddLocation", new { id = Model.MachineId })</p>
+</div>

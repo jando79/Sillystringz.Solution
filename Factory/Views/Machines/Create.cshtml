@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine
+
+<h4>Add a new Machine</h4>
+<p>@Html.ValidationMessageFor(model => model.LocationId, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+<p>@Html.ValidationMessageFor(model => model.ModelName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.ModelName)
+  @Html.TextBoxFor(model => model.ModelName, new { required="required" })
+  @Html.Label("Select Location")
+  @Html.DropDownList("LocationId")
+
+  <input type="submit" value="Add new location" class="btn btn-primary"/>
+}
