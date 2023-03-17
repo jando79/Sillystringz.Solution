@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using UniversityRegistrar.Models;
+using Factory.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
@@ -46,7 +46,7 @@ namespace Factory.Controllers
     public ActionResult AddMachine(int id)
     {
       Location thisLocation = _db.Locations.FirstOrDefault(locations => locations.LocationId == id);
-      ViewBag.MachineId = new SelectList(_db.Mahcines, "MachineId", "MachineName");
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "MachineName");
       return View(thisLocation);
     }
 
