@@ -1,0 +1,35 @@
+@{
+  Layout = "_Layout";
+}
+
+@using UniversityRegistrar.Models
+@model UniversityRegistrar.Models.Department
+
+<h2>Factory Details</h2>
+<hr />
+<h3>Location: @Html.DisplayFor(model => model.LocationName)</h3>
+
+@if(@Model.JoinLocation.Count == 0)
+{
+  <p>No Machines have been assigned to this Location</p>
+}
+else
+{
+  <h4>Machines at this Factory:</h4>
+  <ul>
+  @foreach(MachineLocation join in Model.JoinLocation)
+  {
+    <li>@join.Machine.MachineName</li>
+    @using (Html.BeginForm("DeleteJoin", "Locations"))
+    {
+      @Html.Hidden("joinId", @join.MachineLocationId)
+      <input type="submit" value="Delete"/>
+    }
+  }
+  </ul>
+}
+
+<div id="index-nav">
+<p>@Html.ActionLink("Add a Machine", "AddMachine" , new { id = Model.LocationId })</p>
+<p>@Html.ActionLink("Edit Location", "Edit", new { id = Model.LocationId }) ✏️ @Html.ActionLink("Delete Location", "Delete", new { id = Model.LocationId })</p>
+</div>

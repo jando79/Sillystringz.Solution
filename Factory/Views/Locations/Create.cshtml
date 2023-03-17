@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Location
+
+<h4>Add a new Factory Location</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.LocationName)
+    @Html.TextBoxFor(model => model.LocationName)
+
+    <input type="submit" value="Add new Factory Location" class="btn btn-primary" />
+}

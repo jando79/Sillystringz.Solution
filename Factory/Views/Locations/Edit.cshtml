@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Location
+
+<h2>Edit</h2>
+
+<h4>Edit this Factory Location: @Html.DisplayFor(model => model.FactoryName)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.LocationId)
+
+    @Html.LabelFor(model => model.LocationName)
+    @Html.EditorFor(model => model.LocationName)
+
+    <input type="submit" value="Save" />
+}

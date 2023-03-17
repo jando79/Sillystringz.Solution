@@ -1,0 +1,13 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Location
+
+<h2>Are you sure you want to delete Location?</h2>
+
+@Html.DisplayNameFor(model => model.LocationName): @Html.DisplayFor(model => model.LocationName)
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Delete" />
+}
