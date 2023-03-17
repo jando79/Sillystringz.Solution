@@ -6,12 +6,12 @@
 
 <h4>Add a new Machine</h4>
 <p>@Html.ValidationMessageFor(model => model.LocationId, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
-<p>@Html.ValidationMessageFor(model => model.ModelName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+<p>@Html.ValidationMessageFor(model => model.MachineName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.ModelName)
-  @Html.TextBoxFor(model => model.ModelName, new { required="required" })
+  @Html.LabelFor(model => model.MachineName)
+  @Html.TextBoxFor(model => model.MachineName, new { required="required" })
   @Html.Label("Select Location")
   @Html.DropDownList("LocationId")
 

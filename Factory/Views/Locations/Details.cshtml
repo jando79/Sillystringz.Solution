@@ -2,8 +2,8 @@
   Layout = "_Layout";
 }
 
-@using UniversityRegistrar.Models
-@model UniversityRegistrar.Models.Department
+@using Factory.Models
+@model Factory.Models.Location
 
 <h2>Factory Details</h2>
 <hr />
@@ -31,5 +31,5 @@ else
 
 <div id="index-nav">
 <p>@Html.ActionLink("Add a Machine", "AddMachine" , new { id = Model.LocationId })</p>
-<p>@Html.ActionLink("Edit Location", "Edit", new { id = Model.LocationId }) ✏️ @Html.ActionLink("Delete Location", "Delete", new { id = Model.LocationId })</p>
+<p>@Html.ActionLink("Edit Location", "Edit", new { id = Model.LocationId }) | @Html.ActionLink("Delete Location", "Delete", new { id = Model.LocationId })</p>
 </div>
