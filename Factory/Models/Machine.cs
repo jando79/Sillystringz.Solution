@@ -13,8 +13,7 @@ namespace Factory.Models
     public bool IsComplete { get; set; } = false;
     public Location Location { get; set; }
     public Engineer Engineer { get; set; }
-    public List<MachineLocation> JoinDepartment { get; }
-    public List<EngineerMachine> JoinStudent { get; }
-   
+    public List<MachineLocation> JoinLocation { get; }
+    public List<EngineerMachine> JoinEngineer { get; } 
   }
 }
