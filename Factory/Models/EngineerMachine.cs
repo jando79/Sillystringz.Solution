@@ -1,4 +1,4 @@
-namespace Location.Models
+namespace Factory.Models
 {
   public class EngineerMachine
    {
