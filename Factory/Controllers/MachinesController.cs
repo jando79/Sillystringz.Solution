@@ -64,17 +64,17 @@ namespace Factory.Controllers
       return View(thisMachine);
     }
 
-    public ActionResult IsComplete(int id, bool isComplete)
-    {
-      Machine machine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
-      if (machine == null)
-      {
-        return NotFound();
-      }
-      machine.IsComplete = isComplete;
-      _db.SaveChanges();
-      return RedirectToAction("Index");
-    }
+    //public ActionResult IsComplete(int id, bool isComplete)
+    // {
+    //Machine machine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
+    //   if (machine == null)
+    //   {
+    //     return NotFound();
+    //   }
+    //   machine.IsComplete = isComplete;
+    //   _db.SaveChanges();
+    //   return RedirectToAction("Index");
+    // }
 
     [HttpPost]
     public ActionResult Edit(Machine machine)
