@@ -1,15 +1,16 @@
 @{
   Layout = "_Layout";
 }
+  @using Factory.Models;
 
   <div class="jumbotron text-center">
     <h1>Welcome to Dr. Sillystringz's Factory!</h1>
-    <img src="https://media.istockphoto.com/id/469400194/vector/crazy-scientist.jpg?s=612x612&w=0&k=20&c=NUUt3oYdPHbewfeVQXjXnllSf89mQcmDg4WWZBEvUzY=" alt="Sillystringz" width="50%" height="50%">
+    <img src="https://media.istockphoto.com/id/469400194/vector/crazy-scientist.jpg?s=612x612&w=0&k=20&c=NUUt3oYdPHbewfeVQXjXnllSf89mQcmDg4WWZBEvUzY=" alt="Sillystringz" width="30%" length="30%">
   </div>
   <br>
   <hr>
 
-  @* <h4>Locations:</h4>
+  <h4>Locations:</h4>
   @if (Model["locations"].Length == 0)
   {
     <p>No Locations have been added yet!</p>
@@ -45,8 +46,8 @@
     }
   </ul>
 
-<hr> 
-  <br> *@
+  <hr> 
+  <br>
   <div id="index-nav">
     <p>@Html.ActionLink("See all Machines", "Index", "Machines")</p>
     <p>@Html.ActionLink("See all Engineers", "Index", "Engineers")</p> 
