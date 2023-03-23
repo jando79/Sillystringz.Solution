@@ -42,6 +42,8 @@ namespace Factory.Controllers
       {
         _db.Machines.Add(machine);
         _db.SaveChanges();
+        _db.MachineLocations.Add(new MachineLocation() { LocationId = machine.LocationId, MachineId = machine.MachineId });
+        _db.SaveChanges();
         return RedirectToAction("Index");
       }
     }
@@ -63,18 +65,6 @@ namespace Factory.Controllers
       ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "EngineerName");
       return View(thisMachine);
     }
-
-    //public ActionResult IsComplete(int id, bool isComplete)
-    // {
-    //Machine machine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
-    //   if (machine == null)
-    //   {
-    //     return NotFound();
-    //   }
-    //   machine.IsComplete = isComplete;
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
 
     [HttpPost]
     public ActionResult Edit(Machine machine)
@@ -146,6 +136,15 @@ namespace Factory.Controllers
     {
       MachineLocation joinEntry = _db.MachineLocations.FirstOrDefault(entry => entry.MachineLocationId == joinId);
       _db.MachineLocations.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public ActionResult DeleteJoinEngineer (int joinId)
+    {
+      EngineerMachine joinEntry = _db.EngineerMachines.FirstOrDefault(entry => entry.EngineerMachineId == joinId);
+      _db.EngineerMachines.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }

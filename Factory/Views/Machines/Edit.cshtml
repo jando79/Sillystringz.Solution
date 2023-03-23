@@ -15,5 +15,7 @@
   @Html.LabelFor(model => model.MachineName)
   @Html.EditorFor(model => model.MachineName)
 
+  @Html.HiddenFor(model => model.LocationId)
+
   <input type="submit" value="Save" />
 }
