@@ -17,4 +17,3 @@ namespace Factory.Models
     public List<EngineerMachine> JoinEngineer { get; } 
   }
 }
-//public bool IsComplete { get; set; } = false;

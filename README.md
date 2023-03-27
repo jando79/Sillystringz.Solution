@@ -35,7 +35,7 @@ _This is site built to allow users to add engineers, machines, and factory locat
 
 ## Known Bugs
 
-* _Deleting and engineer from machine details produces and error message_
+* _N/A_
 
 ## License
 
